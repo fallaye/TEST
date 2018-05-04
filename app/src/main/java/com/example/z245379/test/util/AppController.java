@@ -3,8 +3,6 @@ package com.example.z245379.test.util;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.z245379.test.model.Product;
-
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 

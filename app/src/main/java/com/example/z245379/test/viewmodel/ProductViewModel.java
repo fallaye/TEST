@@ -1,6 +1,5 @@
 package com.example.z245379.test.viewmodel;
 
-import android.arch.lifecycle.CompositeGeneratedAdaptersObserver;
 import android.content.Context;
 import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
@@ -8,12 +7,10 @@ import android.view.View;
 //import io.reactivex.disposables.Disposable;
 
 import com.example.z245379.test.model.Product;
-import com.example.z245379.test.model.ProductResponse;
 import com.example.z245379.test.util.AppController;
 import com.example.z245379.test.util.Constant;
 import com.example.z245379.test.util.ProductService;
 
-import java.lang.reflect.AccessibleObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -55,9 +52,9 @@ public class ProductViewModel extends Observable{
         Disposable disposable = productService.fetchProducts(Constant.BASE_URL)
                 .subscribeOn(appController.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<ProductResponse>() {
+                .subscribe(new Consumer<Product>() {
                     @Override
-                    public void accept(ProductResponse productResponse) throws Exception {
+                    public void accept(Product productResponse) throws Exception {
                         updateProductDataList(productResponse.getProductList());
                         productName.set(View.GONE);
                         productRecycler.set(View.VISIBLE);

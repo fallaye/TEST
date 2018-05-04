@@ -12,31 +12,31 @@ public class ProductItemViewModel extends BaseObservable {
     private Product product;
     private Context context;
 
-    public ProductItemViewModel(Product product, Context context){
+    public ProductItemViewModel(Product product){
         this.product = product;
-        this.context = context;
+        //this.context = context;
     }
 
     public String getId() {
-        return product.id;
+        return product.getId();
     }
     public String getName() {
-        return product.name;
+        return product.getName();
     }
     public String getPrice() {
-        return product.price;
+        return product.getPrice();
     }
 
     public String getDescription() {
-        return product.shortDescription;
+        return product.getShortDescription();
     }
-    public String getImage() {
-        return product.thumbnailImage;
-    }
-    @BindingAdapter("thumbnailImage") public static void setImageUrl(
-            ImageView imageView, String url){
+    //public String getImage() {
+        //return product.getThumbnailImage();
+    //}
+    //@BindingAdapter("thumbnailImage") public static void setImageUrl(
+            //ImageView imageView, String url){
      //   Glide.with(imageView.getContext()).load(url).into(imageView);
-    }
+    //}
 
 
     public void setProduct(Product product){
